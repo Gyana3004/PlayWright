@@ -4,7 +4,7 @@ const{test, expect}=require('@playwright/test');
 
 
 
-test.only('First Browser Playwright test',async ({page})=>
+test('First Browser Playwright test',async ({page})=>
 {
 //PlayWright code-
 const Username=page.locator('#username');
