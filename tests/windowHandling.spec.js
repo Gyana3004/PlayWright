@@ -2,7 +2,7 @@ const{test, expect}=require('@playwright/test');
 const { assert } = require('node:console');
 
 
-test.only("Windows Handling",async({browser})=>
+test("Windows Handling",async({browser})=>
 {
 //const Username=page.locator('#username');
 //const SignIn= page.locator("#signInBtn");
