@@ -1,7 +1,7 @@
 const {test,expect}=require ('@playwright/test')
 
 
-test.only("Windows Handling",async({page})=>
+test("Windows Handling",async({page})=>
 {
 const productName="ZARA COAT 3";  
 const email="gyanas1997@gmail.com";
