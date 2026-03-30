@@ -1,5 +1,6 @@
 // @ts-check
 import { defineConfig, devices } from '@playwright/test';
+import { trace } from 'node:console';
 
 /**
  * Read environment variables from file.
@@ -33,6 +34,8 @@ const config=({
     // baseURL: 'http://localhost:3000',
     browserName :'chromium',
     //browserName :'firefox'
+    screenshot :'on',
+    trace :'return-on-failure'
     
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
    // trace: 'on-first-retry',

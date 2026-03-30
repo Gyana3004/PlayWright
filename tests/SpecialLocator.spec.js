@@ -1,7 +1,7 @@
 const {test,expect}=require ('@playwright/test');
 
 
-test.only("Special  Locator",async({page})=>
+test("Special  Locator",async({page})=>
 {
 
     await page.goto("https://rahulshettyacademy.com/angularpractice/");
