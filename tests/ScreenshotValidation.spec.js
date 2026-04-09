@@ -1,7 +1,7 @@
  const {test,assert, expect}=require('@playwright/test')
 
 
- test.only("Validate Hide WebElement",async({page})=>
+ test("Validate Hide WebElement",async({page})=>
 {
 
 
@@ -54,7 +54,7 @@ await expect(page.locator("#displayed-text")).toBeHidden();
 //screenshot-store-screenshot
 
 });
-test.only("Visual Screenshot",async({page})=>
+test("Visual Screenshot",async({page})=>
 {
 
 await page.goto("https://www.google.com/");

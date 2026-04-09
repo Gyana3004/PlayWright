@@ -15,6 +15,8 @@ import { trace } from 'node:console';
  */
 const config=({
   testDir: './tests',
+  retries :1 ,
+  workers :2 ,
   timeout:60 *1000,
   expect :{ timeout:5000,},
   reporter :'html',
@@ -29,19 +31,47 @@ const config=({
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   //reporter: 'html',
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
-  use: {
+  projects:[
+{
+
+name :'Safariproject',
+use: {
+    /* Base URL to use in actions like `await page.goto('/')`. */
+    // baseURL: 'http://localhost:3000',
+    browserName :'webkit',
+    //browserName :'firefox'
+    screenshot :'on',
+    headless :false,
+    trace :'retain-on-failure',
+    //viewport :{width:720 ,height:720}
+    ...devices['Galaxy S24'],
+    /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
+   // trace: 'on-first-retry',
+  },
+},
+ { 
+name :'Chrome',
+ use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
     // baseURL: 'http://localhost:3000',
     browserName :'chromium',
     //browserName :'firefox'
     screenshot :'on',
     headless :false,
-    trace :'return-on-failure'
-    
+    //trace :'return-on-failure',
+    trace :"on",
+   // ...devices['iPhone 15 Pro landscape'],
+    video:'retain-on-failure'
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
    // trace: 'on-first-retry',
   },
+  
+ }
 
+
+
+]
+  
   /* Configure projects for major browsers */
   /*projects: [
     {

@@ -1,7 +1,7 @@
  const {test,assert, expect}=require('@playwright/test')
 
 
- test.only("Validate Hide WebElement",async({page})=>
+ test("Validate Hide WebElement",async({page})=>
 {
 
 

@@ -1,4 +1,5 @@
 const Exceljs=require('exceljs');
+const test=require("@playwright/test")
 
 //import Exceljs from 'exceljs';
 async function writeexcelTest(searchText,replaceText,Relpath,change)
@@ -43,9 +44,29 @@ return output;
 
 }
 
-writeexcelTest("Mango",350,{rowChange:0,colChange:2},"excel Sheet practice.xlsx");
+//writeexcelTest("Mango",350,{rowChange:0,colChange:2},"excel Sheet practice.xlsx");
+
+test("Upload download excel validation",async({page})=>
+{
+
+await page.goto("https://rahulshettyacademy.com/upload-download-test/index.html");
+const download=page.waitforEvent('download');
+await page.getByRole('button',{name:'Download'}).click();
+await download;
+writeexcelTest("Mango",350,{rowChange:0,colChange:2},"/Downloads/download.xlxs");
+//writeexcelTest("Mango",350,{rowChange:0,colChange:2},"/Downloads/download.xlxs");
+await page.locator("#fileinput").setInputFile("/Downloads/download.xlxs");
+await page.getByText('mango')
 
 
+
+
+
+
+
+
+
+});
 /*let output={row:-1,column:-1}
 const workbook=new Exceljs.Workbook();
  workbook.xlsx.readFile("Excel Download.xlsx").then(function(){
